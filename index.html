@@ -1,0 +1,39 @@
+<html>
+    <body>
+        <button onclick="FacebookLogin()">Facebook</button>
+        <button onclick="GoogleLogin()">Google</button>
+        <button onclick="InstagramLogin()">Instagram</button>
+        <script src="https://cdn.rawgit.com/oauth-io/oauth-js/c5af4519/dist/oauth.js"></script>
+        <script>
+            OAuth.initialize('lLOcs_SkqSoXvy_2--UuLfjlBJ8')
+            
+            function FacebookLogin(){
+                OAuth.popup('facebook').done((result) =>{
+                    result.me().done((data) =>{
+                        console.log("User now Logged into Facebook :");
+                        console.log(data);
+                    })
+                })
+            }
+
+            function GoogleLogin(){
+                OAuth.popup('google').done(function(result) {
+                    result.me().done(function(data) {
+                        console.log("User now Logged into Google :");
+                        console.log(data);
+                    })
+                })
+            }
+
+            function InstagramLogin(){
+                OAuth.popup('instagram').done(function(result) {
+                    result.me().done(function(data) {
+                        console.log("User now Logged into Instagram :");
+                        console.log(data);
+                    })
+                })
+            }
+
+        </script>
+    </body>
+</html>
